@@ -180,7 +180,7 @@ h1, h2, h3, h4 {
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
 .rating-badge {
   display: inline-flex; align-items: center; gap: 13px; background: var(--paper-2);
-  border: 1px solid var(--line); border-left: 4px solid var(--blue);
+  border: 1px solid var(--line);
   padding: 12px 18px; max-width: 100%;
 }
 .rating-badge .stars { display: inline-flex; gap: 2px; color: var(--blue); }
@@ -231,10 +231,12 @@ h1, h2, h3, h4 {
 .service-row {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
   width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line);
-  padding: 26px 4px; cursor: pointer; font: inherit; color: inherit;
-  transition: padding-left 0.35s var(--ease), background 0.35s var(--ease);
+  padding: 26px 14px 26px 4px; cursor: pointer; font: inherit; color: inherit;
+  transition: background 0.35s var(--ease);
 }
-.service-row:hover, .service-row.is-active { padding-left: 14px; background: rgba(2, 171, 231, 0.07); }
+.service-row > * { transition: transform 0.35s var(--ease); }
+.service-row:hover > *, .service-row.is-active > * { transform: translateX(12px); }
+.service-row:hover, .service-row.is-active { background: rgba(2, 171, 231, 0.07); }
 .service-num { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; color: var(--blue-ink); }
 .service-row h3 { font-size: clamp(1.1rem, 1.9vw, 1.4rem); transition: color 0.3s var(--ease); }
 .service-row.is-active h3 { color: var(--blue-ink); }
@@ -394,7 +396,7 @@ h1, h2, h3, h4 {
 .step-num { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--blue); }
 .process-step h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .process-step p { font-size: 0.95rem; color: var(--muted); margin: 0; }
-.cta-strip { background: var(--paper-2); border: 1px solid var(--line); border-left: 4px solid var(--blue); padding: clamp(24px, 3vw, 36px); margin-top: 36px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.cta-strip { background: var(--blue-wash); border: 1px solid rgba(2, 137, 186, 0.25); padding: clamp(24px, 3vw, 36px); margin-top: 36px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
 .cta-strip h3 { font-size: 1.3rem; margin-bottom: 6px; }
 .cta-strip p { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
