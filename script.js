@@ -93,6 +93,86 @@
     }
   }
 
+  /* ---------- Marquee ---------- */
+  var track = document.getElementById("marquee-track");
+  if (track) {
+    var words = ["Interior repaints", "Exterior repaints", "Prep done properly", "New builds",
+                 "Roof recoats", "Colour matching", "Queenstown", "Fernhill", "Frankton",
+                 "Lake Hayes", "Arrowtown", "Jack's Point"];
+    var half = words.map(function (w) { return '<span><i>/</i>' + w + "</span>"; }).join("");
+    track.innerHTML = half + half;
+  }
+
+  /* ---------- Services index: one row lights up, the image follows ---------- */
+  var rows = Array.prototype.slice.call(document.querySelectorAll(".service-row"));
+  var shots = Array.prototype.slice.call(document.querySelectorAll("#service-media img"));
+  var caption = document.getElementById("service-caption");
+  if (rows.length && shots.length) {
+    var pick = function (row) {
+      var i = parseInt(row.getAttribute("data-img"), 10) || 0;
+      rows.forEach(function (r) {
+        var on = r === row;
+        r.classList.toggle("is-active", on);
+        r.setAttribute("aria-expanded", on ? "true" : "false");
+      });
+      shots.forEach(function (img, n) { img.classList.toggle("is-active", n === i); });
+      var heading = row.querySelector("h3");
+      if (caption && heading) caption.textContent = heading.textContent;
+    };
+    rows.forEach(function (row) {
+      row.addEventListener("click", function () { pick(row); });
+      row.addEventListener("mouseenter", function () { pick(row); });
+      row.addEventListener("focus", function () { pick(row); });
+    });
+  }
+
+  /* ---------- Gallery filters ---------- */
+  var filters = Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
+  var shotsAll = Array.prototype.slice.call(document.querySelectorAll("#gallery figure"));
+  if (filters.length && shotsAll.length) {
+    filters.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var want = btn.getAttribute("data-filter");
+        filters.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+        shotsAll.forEach(function (fig) {
+          fig.hidden = !(want === "all" || fig.getAttribute("data-cat") === want);
+        });
+      });
+    });
+  }
+
+  /* ---------- Lightbox ---------- */
+  var box = document.getElementById("lightbox");
+  var boxImg = document.getElementById("lightbox-img");
+  var boxCap = document.getElementById("lightbox-cap");
+  var boxClose = document.getElementById("lightbox-close");
+  if (box && boxImg) {
+    var openBox = function (fig) {
+      var img = fig.querySelector("img");
+      var cap = fig.querySelector("figcaption");
+      if (!img) return;
+      boxImg.src = img.getAttribute("src");
+      boxImg.alt = img.getAttribute("alt") || "";
+      if (boxCap) boxCap.textContent = cap ? cap.textContent : "";
+      box.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      if (boxClose) boxClose.focus();
+    };
+    var closeBox = function () {
+      box.classList.remove("is-open");
+      document.body.style.overflow = "";
+      boxImg.removeAttribute("src");
+    };
+    shotsAll.forEach(function (fig) {
+      fig.addEventListener("click", function () { openBox(fig); });
+    });
+    box.addEventListener("click", function (e) { if (e.target !== boxImg) closeBox(); });
+    if (boxClose) boxClose.addEventListener("click", closeBox);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.classList.contains("is-open")) closeBox();
+    });
+  }
+
   /* ---------- Gmail compose links (address assembled in JS) ---------- */
   document.querySelectorAll("a[data-gmail]").forEach(function (a) {
     var to = a.getAttribute("data-user") + "@" + a.getAttribute("data-domain");

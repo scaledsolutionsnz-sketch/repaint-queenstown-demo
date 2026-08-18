@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Repaint Queenstown | House Painters, Queenstown</title>
 <meta name="description" content="Interior and exterior house repaints across Queenstown and the Wakatipu. Proper prep, tidy sites and a written quote before anything starts. Call Sam on 022 694 7311.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#02abe7">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <meta property="og:title" content="Repaint Queenstown | House Painters, Queenstown">
 <meta property="og:description" content="Interior and exterior house repaints across Queenstown and the Wakatipu. Proper prep, tidy sites, written quotes.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1613844044163-1ad2f2d0b152?auto=format&fit=crop&w=1200&q=70">
+<meta property="og:image" content="https://repaint-queenstown-demo.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +22,7 @@
 <!-- Opening animation -->
 <div id="intro" aria-hidden="true">
   <div class="intro-mark">
-    <span><b>Repaint Queenstown</b></span>
+    <img src="img/logo-dark.png" alt="" width="420" height="180" style="height:clamp(46px,7vw,72px);width:auto;margin:0 auto">
     <div class="intro-rule"></div>
   </div>
 </div>
@@ -60,6 +62,9 @@
   <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M14 4h6v6"/><path d="M20 4l-8.6 8.6"/><path d="M18.5 14.5V19a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19V7.5A1.5 1.5 0 0 1 5.5 6H10"/>
   </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
   <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor">
     <path d="M13.6 22v-8.1h2.7l.41-3.16H13.6V8.72c0-.92.25-1.54 1.57-1.54h1.68V4.35A22.4 22.4 0 0 0 14.4 4.2c-2.42 0-4.08 1.48-4.08 4.19v2.35H7.6v3.16h2.72V22h3.28z"/>
   </symbol>
@@ -74,12 +79,8 @@
 <!-- Nav -->
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">
-      <span class="brand-mark"><svg><use href="#i-roller"></use></svg></span>
-      <span class="brand-text">
-        <span class="brand-name">Repaint Queenstown</span>
-        <span class="brand-sub">Painters &amp; Decorators</span>
-      </span>
+    <a class="brand" href="index.html" aria-label="Repaint Queenstown home">
+      <img class="brand-logo" src="img/logo.png" alt="Repaint Queenstown" width="760" height="334">
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
@@ -109,34 +110,37 @@
 
 <!-- Hero -->
 <section class="hero" id="top">
-  <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide is-active">
-      <img src="https://images.unsplash.com/photo-1613844044163-1ad2f2d0b152?auto=format&fit=crop&w=1800&q=72" alt="Painter on a ladder preparing the exterior of a white weatherboard house" fetchpriority="high" width="1800" height="1200">
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1649083048381-520a5b3d91ff?auto=format&fit=crop&w=1800&q=72" alt="Freshly painted white interior living space with a vaulted ceiling" loading="lazy" width="1800" height="1200">
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1745665777586-09381ba528d6?auto=format&fit=crop&w=1800&q=72" alt="Painter rolling a finish coat across a large exterior wall" loading="lazy" width="1800" height="1200">
-    </div>
-  </div>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="container hero-inner">
+  <div class="hero-inner">
     <p class="eyebrow hero-eyebrow">Queenstown &amp; the Wakatipu</p>
-    <h1>Repaints that hold up to a Queenstown winter.</h1>
-    <p class="hero-sub">Interior and exterior repainting for homes, rentals and holiday houses — from town and Fernhill through to Frankton, Lake Hayes and Arrowtown. Prep done properly, a written quote before we start, and the place left liveable while we're in it.</p>
+    <h1>Repaints that hold up to a <em>Queenstown winter</em>.</h1>
+    <p class="hero-sub">Interior and exterior repainting for homes, rentals and holiday houses, from town and Fernhill through to Frankton, Lake Hayes and Arrowtown. Prep done properly, a written quote before we start, and the place left liveable while we are in it.</p>
     <div class="hero-cta">
       <a class="btn btn--primary" href="#contact">Get a quote <svg><use href="#i-arrow"></use></svg></a>
-      <a class="btn btn--ghost" href="tel:+64226947311"><svg><use href="#i-phone"></use></svg> Call 022 694 7311</a>
+      <a class="btn btn--outline" href="tel:+64226947311"><svg><use href="#i-phone"></use></svg> Call 022 694 7311</a>
     </div>
     <div class="rating-badge">
       <span class="stars" aria-hidden="true">
         <svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg><svg><use href="#i-star"></use></svg>
       </span>
-      <span class="rating-text"><b>5.0</b> rated by Wakatipu homeowners
-        <small>Example rating — your real Google reviews sit here</small>
+      <span class="rating-text"><b>Rated by Wakatipu homeowners</b>
+        <small>Example rating, your real Google reviews sit here</small>
       </span>
     </div>
+  </div>
+  <div class="hero-media">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide is-active">
+        <img src="img/ext-black-house.webp" alt="Charcoal weatherboard home in Queenstown after an exterior repaint" fetchpriority="high" width="1360" height="1020">
+      </div>
+      <div class="hero-slide">
+        <img src="img/int-open-plan.webp" alt="Open plan living and dining repainted in white with a lake view" loading="lazy" width="1360" height="1020">
+      </div>
+      <div class="hero-slide">
+        <img src="img/int-living-fire.webp" alt="Vaulted living room repainted white around a stone fireplace" loading="lazy" width="1360" height="1020">
+      </div>
+    </div>
+    <span class="hero-rail" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="hero-scrim" aria-hidden="true"></span>
     <div class="hero-dots" role="tablist" aria-label="Hero images">
       <button type="button" class="is-active" aria-label="Show image 1"></button>
       <button type="button" aria-label="Show image 2"></button>
@@ -144,6 +148,11 @@
     </div>
   </div>
 </section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track"></div>
+</div>
 
 <!-- Trust strip -->
 <section class="trust">
@@ -153,7 +162,7 @@
         <svg><use href="#i-mountain"></use></svg>
         <div>
           <h3>Wakatipu locals</h3>
-          <p>We work the basin — Queenstown, Fernhill, Frankton, Lake Hayes, Arrowtown and Jack's Point.</p>
+          <p>We work the basin: Queenstown, Fernhill, Frankton, Lake Hayes, Arrowtown and Jack's Point.</p>
         </div>
       </div>
       <div class="trust-item reveal">
@@ -180,69 +189,115 @@
     <div class="section-head reveal">
       <p class="eyebrow">What we do</p>
       <h2>Painting work, named the way you'd ask for it</h2>
-      <p class="lede">Most of our work is repaints — houses that have taken ten years of sun, frost and southerly and need bringing back rather than built from scratch.</p>
+      <p class="lede">Most of our work is repaints. Houses that have taken ten years of sun, frost and southerly and need bringing back rather than built from scratch.</p>
     </div>
     <div class="services-grid">
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1690731987727-ab5daed3620b?auto=format&fit=crop&w=900&q=70" alt="Modern home exterior with freshly painted cladding and cedar entry" loading="lazy" width="900" height="506">
+      <div class="service-list reveal" id="service-list">
+        <button class="service-row is-active" type="button" data-img="0" aria-expanded="true">
           <span class="service-num">01</span>
-        </div>
-        <div class="service-body">
           <h3>Exterior repaints</h3>
-          <p>Weatherboard, cedar, plaster and joinery. Washed back, sanded, primed where it's needed, then finish coats rated for alpine sun and frost.</p>
-        </div>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=900&q=70" alt="Interior living room with freshly painted walls, ceiling and trim" loading="lazy" width="900" height="506">
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Weatherboard, cedar, plaster and joinery. Washed back, sanded, primed where it is needed, then finish coats rated for alpine sun and frost.</p>
+        </button>
+        <button class="service-row" type="button" data-img="1" aria-expanded="false">
           <span class="service-num">02</span>
-        </div>
-        <div class="service-body">
           <h3>Interior repaints</h3>
-          <p>Walls, ceilings, doors and skirtings. Furniture covered and shifted back, and rooms handed over clean — not left for you to sort.</p>
-        </div>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1599619585752-c3edb42a414c?auto=format&fit=crop&w=900&q=70" alt="Paint tray and roller set up on a trestle for surface preparation" loading="lazy" width="900" height="506">
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Walls, ceilings, doors and skirtings. Furniture covered and shifted back, and rooms handed over clean rather than left for you to sort.</p>
+        </button>
+        <button class="service-row" type="button" data-img="2" aria-expanded="false">
           <span class="service-num">03</span>
-        </div>
-        <div class="service-body">
           <h3>Prep, patching &amp; repairs</h3>
-          <p>Filling, sanding, rot and rust spots sorted, gaps sealed and joinery made good. The part that decides whether the paint lasts three years or ten.</p>
-        </div>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1602193069473-0c78775ec7e1?auto=format&fit=crop&w=900&q=70" alt="Long-run metal roof under a heavy sky" loading="lazy" width="900" height="506">
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Filling, sanding, rot and rust spots sorted, gaps sealed and joinery made good. The part that decides whether the paint lasts three years or ten.</p>
+        </button>
+        <button class="service-row" type="button" data-img="3" aria-expanded="false">
           <span class="service-num">04</span>
-        </div>
-        <div class="service-body">
-          <h3>Roof &amp; spouting recoats</h3>
-          <p>Long-run and tile roofs washed down and recoated, spouting and fascia brought back to match, so the roof stops ageing the whole house.</p>
-        </div>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1602740027538-35973ec88b9e?auto=format&fit=crop&w=900&q=70" alt="Open paint tins showing a range of colour samples" loading="lazy" width="900" height="506">
+          <h3>New builds &amp; fit-outs</h3>
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Sealing, stopping touch-ups and finish coats through new homes, including vaulted ceilings, shiplap linings and built-in joinery.</p>
+        </button>
+        <button class="service-row" type="button" data-img="4" aria-expanded="false">
           <span class="service-num">05</span>
-        </div>
-        <div class="service-body">
           <h3>Colour matching &amp; advice</h3>
-          <p>Bring the swatch or we'll match what's already there. Sample pots go on the wall and get looked at in morning and evening light before you commit.</p>
-        </div>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-media">
-          <img src="https://images.unsplash.com/photo-1565183997392-2f6f122e5912?auto=format&fit=crop&w=900&q=70" alt="Open-plan holiday home interior after painting" loading="lazy" width="900" height="506">
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Bring the swatch or we will match what is already there. Sample pots go on the wall and get looked at in morning and evening light before you commit.</p>
+        </button>
+        <button class="service-row" type="button" data-img="5" aria-expanded="false">
           <span class="service-num">06</span>
-        </div>
-        <div class="service-body">
           <h3>Rentals &amp; holiday homes</h3>
-          <p>Turnarounds scheduled around bookings and tenants, with the place cleaned up and ready to let the day we finish.</p>
+          <svg class="service-go"><use href="#i-arrow"></use></svg>
+          <p class="service-copy">Turnarounds scheduled around bookings and tenants, with the place cleaned up and ready to let the day we finish.</p>
+        </button>
+      </div>
+      <div class="service-media reveal">
+        <div class="service-media-frame" id="service-media">
+          <img class="is-active" src="img/ext-black-house.webp" alt="Charcoal exterior repaint on a Queenstown home" loading="lazy" width="1360" height="1020">
+          <img src="img/int-living-lake.webp" alt="Interior repaint in a living room looking over the lake" loading="lazy" width="1360" height="1020">
+          <img src="img/job-prep-bucket.webp" alt="Masking and prep work under way in a corner of a room" loading="lazy" width="765" height="1020">
+          <img src="img/job-kitchen-painter.webp" alt="Painter working through a new kitchen and vaulted ceiling" loading="lazy" width="765" height="1020">
+          <img src="img/int-bed-timber.webp" alt="Bedroom with timber joinery and freshly painted linings" loading="lazy" width="1360" height="1020">
+          <img src="img/int-bunk-room.webp" alt="Bunk room repainted white with a lake view" loading="lazy" width="1360" height="1020">
         </div>
-      </article>
+        <p class="service-media-caption"><b id="service-caption">Exterior repaints</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Colour band -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">On the colour card</p>
+      <h2>Colours we're putting on Wakatipu houses</h2>
+      <p class="lede">Pulled off recent jobs. Bring your own swatch or start from one of these and we will get sample pots on the wall.</p>
+    </div>
+    <div class="swatches reveal">
+      <div class="swatch"><i style="background:#f4f6f7"></i><span><b>Frost White</b>Ceilings and shiplap linings</span></div>
+      <div class="swatch"><i style="background:#dfe3e2"></i><span><b>Lake Mist</b>Hallways and bedrooms</span></div>
+      <div class="swatch"><i style="background:#b9b3a9"></i><span><b>Wakatipu Stone</b>Trim and feature walls</span></div>
+      <div class="swatch"><i style="background:#8a94a2"></i><span><b>Alpine Grey</b>Exterior plaster</span></div>
+      <div class="swatch"><i style="background:#3c3d36"></i><span><b>Schist</b>Weatherboard and joinery</span></div>
+      <div class="swatch"><i style="background:#02abe7"></i><span><b>Repaint Blue</b>Ours, not for your walls</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="section section--bone2" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our work</p>
+      <h2>Recent jobs around the basin</h2>
+      <p class="lede">Interiors, exteriors and the mid-job shots that show how the finish gets there.</p>
+    </div>
+    <div class="gallery-filters reveal" role="group" aria-label="Filter our work">
+      <button class="filter-btn is-active" type="button" data-filter="all">Everything</button>
+      <button class="filter-btn" type="button" data-filter="interior">Interiors</button>
+      <button class="filter-btn" type="button" data-filter="exterior">Exteriors</button>
+      <button class="filter-btn" type="button" data-filter="job">On the job</button>
+    </div>
+    <div class="gallery reveal" id="gallery">
+      <figure data-cat="exterior"><img src="img/ext-black-house.webp" alt="Charcoal weatherboard home with deck after an exterior repaint" loading="lazy"><figcaption>Exterior repaint, charcoal weatherboard and joinery</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-living-lake.webp" alt="Living room with tan leather sofa and lake view" loading="lazy"><figcaption>Living room, white linings and ceiling</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-vault-ladder.webp" alt="Ladder set against a vaulted ceiling mid-paint" loading="lazy"><figcaption>Vaulted ceiling, cutting in from the ladder</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-bed-lake.webp" alt="Bedroom with shiplap walls and a lake view" loading="lazy"><figcaption>Bedroom, shiplap walls and reveals</figcaption></figure>
+      <figure data-cat="exterior"><img src="img/ext-grey-apartments.webp" alt="Grey exterior plaster walls with the hills behind" loading="lazy"><figcaption>Exterior plaster recoat, Frankton hills behind</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-living-fire.webp" alt="Vaulted living room with stone fireplace and mountain outlook" loading="lazy"><figcaption>Vaulted living room around a stone fireplace</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-prep-bucket.webp" alt="Paint kit and masking tape line in a corner mid-job" loading="lazy"><figcaption>Masked and cut in before the first coat</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-bath-vanity.webp" alt="Bathroom with vanity, mirror and freshly painted walls" loading="lazy"><figcaption>Bathroom, walls and ceiling in a wipeable finish</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-living-kitchen.webp" alt="Open living and kitchen area with lake view" loading="lazy"><figcaption>Living and kitchen, one continuous white</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-kitchen-painter.webp" alt="Painter working through a kitchen under a vaulted ceiling" loading="lazy"><figcaption>Finish coats through the kitchen</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-hallway.webp" alt="Hallway with white walls and doors" loading="lazy"><figcaption>Hallway, doors and architraves</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-drop-sheets.webp" alt="Empty room with drop sheets down mid-repaint" loading="lazy"><figcaption>Drop sheets down, room emptied and taped</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-bed-timber.webp" alt="Bedroom with timber joinery, stone and painted linings" loading="lazy"><figcaption>Bedroom, painted linings against timber and stone</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-open-plan.webp" alt="Open plan dining and living space with lake view" loading="lazy"><figcaption>Open plan living, walls and ceiling</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-study-ladder.webp" alt="Built-in study joinery with a ladder alongside" loading="lazy"><figcaption>Built-in joinery, cut in by hand</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-bath-mirror.webp" alt="Bathroom vanity and mirror with painted walls" loading="lazy"><figcaption>Bathroom vanity wall and reveals</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-lounge-art.webp" alt="Lounge with framed art and white painted walls" loading="lazy"><figcaption>Lounge, walls and skirtings finished</figcaption></figure>
+      <figure data-cat="job"><img src="img/job-empty-room.webp" alt="Empty room mid-job with drop sheets and lake view" loading="lazy"><figcaption>Room stripped back and ready to coat</figcaption></figure>
+      <figure data-cat="interior"><img src="img/int-bunk-room.webp" alt="Bunk room painted white with a lake view" loading="lazy"><figcaption>Bunk room, ready for the holiday season</figcaption></figure>
     </div>
   </div>
 </section>
@@ -252,14 +307,14 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-media reveal">
-        <img src="https://images.unsplash.com/photo-1512017615494-fdf6146235ff?auto=format&fit=crop&w=1200&q=72" alt="Queenstown township and Lake Wakatipu below the Remarkables" loading="lazy" width="1200" height="900">
+        <img src="img/ext-black-house.webp" alt="Charcoal repainted home under the hills in Queenstown" loading="lazy" width="1360" height="1020">
         <span class="about-tag">Based in Queenstown</span>
       </div>
       <div class="reveal">
         <p class="eyebrow">About us</p>
         <h2>Painters who'd rather spend the extra day on prep</h2>
-        <p>Repaint Queenstown is a painting and decorating outfit working across Queenstown and the Wakatipu Basin. Houses here cop it — hard UV off the lake in summer, frost and snow load through winter, and weatherboards that dry out and open up. A tidy top coat over poor prep looks great for a season and then starts letting go.</p>
-        <p>So we quote the preparation as clearly as the paint: what gets washed, what gets sanded back, what gets filled or replaced, and what goes on top. You'll know what you're paying for before anyone lifts a brush.</p>
+        <p>Repaint Queenstown is a painting and decorating outfit working across Queenstown and the Wakatipu Basin. Houses here cop it. Hard UV off the lake in summer, frost and snow load through winter, and weatherboards that dry out and open up. A tidy top coat over poor prep looks great for a season and then starts letting go.</p>
+        <p>So we quote the preparation as clearly as the paint: what gets washed, what gets sanded back, what gets filled or replaced, and what goes on top. You will know what you are paying for before anyone lifts a brush.</p>
         <ul class="checklist">
           <li><svg><use href="#i-check"></use></svg><span>Queenstown based, working the whole Wakatipu Basin</span></li>
           <li><svg><use href="#i-check"></use></svg><span>Written quote with the prep spelled out line by line</span></li>
@@ -271,84 +326,46 @@
   </div>
 </section>
 
-<!-- Work -->
-<section class="section section--bone2" id="work">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Our work</p>
-      <h2>Finishes, colour and detail</h2>
-      <span class="badge-note">Example gallery — your own job photos drop straight in here</span>
-      <p class="lede">Interiors, exteriors and the small details that decide whether a repaint reads as new or just recoated.</p>
-    </div>
-    <div class="gallery reveal">
-      <figure>
-        <img src="https://images.unsplash.com/photo-1603801706022-52693d406d59?auto=format&fit=crop&w=800&q=72" alt="Sitting room painted in a soft sage green with white trim" loading="lazy">
-        <figcaption>Interior repaint — sitting room in a soft sage</figcaption>
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1600054648630-e10e710825f6?auto=format&fit=crop&w=800&q=72" alt="Bedroom feature wall painted in a warm terracotta tone" loading="lazy">
-        <figcaption>Feature wall — warm terracotta, cut in by hand</figcaption>
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1652829069862-87874e119527?auto=format&fit=crop&w=800&q=72" alt="Clean roller and tray loaded with white ceiling paint" loading="lazy">
-        <figcaption>Ceilings — two coats, cut and rolled</figcaption>
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1628012209120-d9db7abf7eab?auto=format&fit=crop&w=800&q=72" alt="Crisp white painted exterior of a modern multi-level home" loading="lazy">
-        <figcaption>Exterior recoat — plaster and joinery</figcaption>
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1709487364429-50458e975037?auto=format&fit=crop&w=800&q=72" alt="Roller loaded with a warm clay colour on a drop sheet" loading="lazy">
-        <figcaption>Colour matching before the first coat</figcaption>
-      </figure>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1613844044163-1ad2f2d0b152?auto=format&fit=crop&w=800&q=72" alt="Exterior wall being prepared and filled before painting" loading="lazy">
-        <figcaption>Exterior prep — filled, sanded and sealed</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
 <!-- Crew -->
-<section class="section" id="crew">
+<section class="section section--bone" id="crew">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">The crew</p>
       <h2>Who turns up at your place</h2>
-      <span class="badge-note">Sam is real — the other roles are examples until we add your crew</span>
-      <p class="lede">Small team, no subbies passed around. You'll know the names on site before the first day.</p>
+      <span class="badge-note">Sam is real, the other roles are examples until we add your crew</span>
+      <p class="lede">Small team, no subbies passed around. You will know the names on site before the first day.</p>
     </div>
     <div class="crew-grid">
       <article class="crew-card reveal">
         <div class="avatar" aria-hidden="true">S</div>
         <h3>Sam</h3>
         <p class="crew-role">Owner / Painter</p>
-        <p>Quotes the job, runs the site and does the finish work. He's who you call, and he's on the tools rather than behind a desk.</p>
+        <p>Quotes the job, runs the site and does the finish work. He is who you call, and he is on the tools rather than behind a desk.</p>
       </article>
       <article class="crew-card reveal">
         <div class="avatar" aria-hidden="true">PD</div>
         <h3>Painter &amp; Decorator</h3>
         <p class="crew-role">Example role</p>
-        <p>Cutting in, rolling and spraying through the main body of the job, so the house isn't tied up for weeks longer than it needs to be.</p>
+        <p>Cutting in, rolling and spraying through the main body of the job, so the house is not tied up for weeks longer than it needs to be.</p>
       </article>
       <article class="crew-card reveal">
         <div class="avatar" aria-hidden="true">PF</div>
         <h3>Prep &amp; Finishing</h3>
         <p class="crew-role">Example role</p>
-        <p>Washing, sanding, filling and masking before a coat goes on — then the tidy-up and final walk-through with you at the end.</p>
+        <p>Washing, sanding, filling and masking before a coat goes on, then the tidy-up and final walk-through with you at the end.</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- Reviews -->
-<section class="section section--bone" id="reviews">
+<section class="section" id="reviews">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Reviews</p>
       <h2>What Wakatipu homeowners say</h2>
-      <span class="badge-note">Example reviews — real Google reviews replace these</span>
-      <p class="lede">We couldn't pull live reviews into this demo, so these are written as examples. Once the site is live, your genuine Google reviews feed straight into this section.</p>
+      <span class="badge-note">Example reviews, real Google reviews replace these</span>
+      <p class="lede">We could not pull live reviews into this demo, so these are written as examples. Once the site is live, your genuine Google reviews feed straight into this section.</p>
     </div>
     <div class="reviews-grid">
       <article class="review-card reveal">
@@ -415,7 +432,7 @@
   <div class="container reveal">
     <p class="eyebrow">Already had us on site?</p>
     <h2>Happy with how the place turned out?</h2>
-    <p>A quick Google review is the biggest help you can give a small Queenstown trade business — it's the first thing the next homeowner reads.</p>
+    <p>A quick Google review is the biggest help you can give a small Queenstown trade business. It is the first thing the next homeowner reads.</p>
     <a class="btn btn--primary btn--lg" href="https://www.google.com/maps/search/?api=1&query=Repaint+Queenstown+Queenstown+New+Zealand" target="_blank" rel="noopener">Leave a Google review <svg><use href="#i-external"></use></svg></a>
   </div>
 </section>
@@ -427,7 +444,7 @@
       <div class="reveal">
         <p class="eyebrow">Get in touch</p>
         <h2>Get a quote for your repaint</h2>
-        <p class="lede">Send through a couple of photos of the house and roughly what you want done — inside, outside or both — and Sam will come back with a price and a start window.</p>
+        <p class="lede">Send through a couple of photos of the house and roughly what you want done, inside, outside or both, and Sam will come back with a price and a start window.</p>
         <ul class="contact-rows">
           <li>
             <svg><use href="#i-phone"></use></svg>
@@ -455,7 +472,7 @@
       </div>
       <div class="contact-panel reveal">
         <h3>Two ways to get hold of Sam</h3>
-        <p>Ring during the day for a quick answer, or email through the details and photos and he'll work up a quote.</p>
+        <p>Ring during the day for a quick answer, or email through the details and photos and he will work up a quote.</p>
         <div class="contact-buttons">
           <a class="btn btn--primary btn--lg" href="tel:+64226947311"><svg><use href="#i-phone"></use></svg> Call for a quote</a>
           <a class="btn btn--ghost btn--lg" href="#" data-gmail data-user="repainqueenstown" data-domain="gmail.com" data-su="Repaint%20quote%20enquiry" data-body="Hi%20Sam%2C%0A%0AI%27d%20like%20a%20quote%20for%20a%20repaint.%0A%0AAddress%3A%0AInside%2C%20outside%20or%20both%3A%0ARough%20timing%3A%0A%0AThanks%2C"><svg><use href="#i-mail"></use></svg> Email your job details</a>
@@ -484,12 +501,8 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="index.html">
-          <span class="brand-mark"><svg><use href="#i-roller"></use></svg></span>
-          <span class="brand-text">
-            <span class="brand-name">Repaint Queenstown</span>
-            <span class="brand-sub">Painters &amp; Decorators</span>
-          </span>
+        <a class="brand footer-brand" href="index.html" aria-label="Repaint Queenstown home">
+          <img class="brand-logo" src="img/logo.png" alt="Repaint Queenstown" width="760" height="334" loading="lazy">
         </a>
         <p>Interior and exterior house repainting across Queenstown and the Wakatipu Basin.</p>
         <div class="socials">
@@ -525,6 +538,13 @@
     </div>
   </div>
 </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Job photo">
+  <button class="lightbox-close" type="button" id="lightbox-close" aria-label="Close"><svg><use href="#i-close"></use></svg></button>
+  <img id="lightbox-img" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+</div>
 
 <script src="script.js"></script>
 </body>
