@@ -179,11 +179,11 @@ h1, h2, h3, h4 {
 .hero-sub { font-size: 1.04rem; color: var(--muted); max-width: 52ch; margin-bottom: 28px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
 .rating-badge {
-  display: inline-flex; align-items: center; gap: 13px; background: var(--paper-2);
+  display: flex; align-items: center; gap: 13px; background: var(--paper-2);
   border: 1px solid var(--line);
-  padding: 12px 18px; max-width: 100%;
+  padding: 13px 18px; max-width: 560px;
 }
-.rating-badge .stars { display: inline-flex; gap: 2px; color: var(--blue); }
+.rating-badge .stars { display: inline-flex; gap: 2px; color: var(--blue); flex: none; align-self: flex-start; margin-top: 3px; }
 .rating-badge .stars svg { width: 15px; height: 15px; }
 .rating-text { font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
 .rating-text b { color: var(--ink); font-family: "Outfit", sans-serif; }
@@ -215,15 +215,6 @@ h1, h2, h3, h4 {
 .marquee i { font-style: normal; color: var(--blue); padding-right: 1.6em; }
 @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ---------- trust: divided row, not cards ---------- */
-.trust { background: var(--paper-2); border-bottom: 1px solid var(--line); }
-.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.trust-item { display: flex; gap: 15px; padding: 34px clamp(18px, 2.4vw, 34px); border-left: 1px solid var(--line); }
-.trust-item:first-child { border-left: 0; padding-left: 0; }
-.trust-item:last-child { padding-right: 0; }
-.trust-item > svg { width: 26px; height: 26px; flex: none; color: var(--blue-ink); }
-.trust-item h3 { font-size: 1.02rem; margin-bottom: 6px; }
-.trust-item p { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.62; }
 
 /* ---------- services: an index that swaps one large image ---------- */
 .services-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
@@ -441,9 +432,9 @@ h1, h2, h3, h4 {
   .mobile-menu.is-open { transform: none; opacity: 1; pointer-events: auto; }
   .mobile-menu a { display: block; padding: 14px 12px; font-family: "Outfit", sans-serif; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
   .mobile-menu a:last-child { border-bottom: 0; }
-  .trust-grid, .crew-grid { grid-template-columns: 1fr; }
-  .trust-item, .crew-card { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-right: 0; }
-  .trust-item:first-child, .crew-card:first-child { border-top: 0; }
+  .crew-grid { grid-template-columns: 1fr; }
+  .crew-card { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-right: 0; }
+  .crew-card:first-child { border-top: 0; }
   .reviews-grid { grid-template-columns: 1fr; }
   .gallery { column-count: 1; }
   .swatches { grid-template-columns: repeat(2, 1fr); }
@@ -454,3 +445,9 @@ h1, h2, h3, h4 {
   .about-tag { left: 0; }
   .map-wrap iframe { height: 320px; }
 }
+
+/* hero review rotator */
+.rating-text { transition: opacity .45s ease; min-width: 0; }
+.rating-text.fading { opacity: 0; }
+.rb-quote { display: block; }
+.rb-who { display: block; margin-top: 2px; }

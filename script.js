@@ -173,6 +173,29 @@
     });
   }
 
+  /* ---------- Hero review rotation ---------- */
+  var rot = document.querySelector("[data-review-rotator]");
+  if (rot && !reduceMotion) {
+    var heroReviews = [
+      { q: '"Washed it right back and it honestly looks like a different house."', w: "Hannah M. \u00b7 example review" },
+      { q: '"Quote in writing the same week and the price didn\u0027t move."', w: "Dave R. \u00b7 example review" },
+      { q: '"Worked around the holiday-house bookings without us losing a night."', w: "Priya S. \u00b7 example review" },
+      { q: '"Careful with an awkward old cottage, swept and tidy every evening."', w: "Tom W. \u00b7 example review" }
+    ];
+    var rq = rot.querySelector(".rb-quote");
+    var rw = rot.querySelector(".rb-who");
+    var ri = 0;
+    window.setInterval(function () {
+      rot.classList.add("fading");
+      window.setTimeout(function () {
+        ri = (ri + 1) % heroReviews.length;
+        rq.textContent = heroReviews[ri].q;
+        rw.textContent = heroReviews[ri].w;
+        rot.classList.remove("fading");
+      }, 450);
+    }, 6000);
+  }
+
   /* ---------- Gmail compose links (address assembled in JS) ---------- */
   document.querySelectorAll("a[data-gmail]").forEach(function (a) {
     var to = a.getAttribute("data-user") + "@" + a.getAttribute("data-domain");
