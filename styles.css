@@ -488,3 +488,25 @@ h1, h2, h3, h4 {
 @media (min-width: 1000px) {
   .proc-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ---------- Google review badge ---------- */
+.gmark { width: 18px; height: 18px; flex: none; }
+.gmark--sm { width: 13px; height: 13px; vertical-align: -2px; margin-right: 5px; }
+
+.gbadge {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 18px; padding: 10px 16px;
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 999px; text-decoration: none; color: var(--text);
+  transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+.gbadge:hover { border-color: var(--blue); transform: translateY(-1px); }
+.gbadge b { font-family: "Outfit", sans-serif; font-size: 1.05rem; line-height: 1; }
+.gbadge .gstars { display: inline-flex; gap: 2px; color: #f5a623; }
+.gbadge .gstars svg { width: 14px; height: 14px; }
+.gbadge .gcount { font-size: 0.86rem; color: var(--muted); white-space: nowrap; }
+
+@media (max-width: 420px) {
+  .gbadge { gap: 8px; padding: 9px 13px; }
+  .gbadge .gcount { font-size: 0.8rem; }
+}
