@@ -96,8 +96,8 @@
   /* ---------- Marquee ---------- */
   var track = document.getElementById("marquee-track");
   if (track) {
-    var words = ["Interior repaints", "Exterior repaints", "Prep done properly", "New builds",
-                 "Roof recoats", "Colour matching", "Queenstown", "Fernhill", "Frankton",
+    var words = ["Exterior repaints", "Interior repaints", "Cedar staining", "Decks & fences",
+                 "Queenstown", "Fernhill", "Frankton",
                  "Lake Hayes", "Arrowtown", "Jack's Point"];
     var half = words.map(function (w) { return '<span><i>/</i>' + w + "</span>"; }).join("");
     track.innerHTML = half + half;
