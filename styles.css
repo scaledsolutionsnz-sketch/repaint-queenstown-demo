@@ -510,3 +510,19 @@ h1, h2, h3, h4 {
   .gbadge { gap: 8px; padding: 9px 13px; }
   .gbadge .gcount { font-size: 0.8rem; }
 }
+
+/* ---------- Google mark in the hero rating badge ---------- */
+.rb-g {
+  display: inline-flex; align-items: center; gap: 7px; flex: none;
+  align-self: flex-start; margin-top: 1px;
+  padding-right: 12px; margin-right: 2px;
+  border-right: 1px solid var(--line);
+  text-decoration: none; color: var(--ink);
+  transition: opacity .2s var(--ease);
+}
+.rb-g:hover { opacity: .72; }
+.rb-g b { font-family: "Outfit", sans-serif; font-size: 1.02rem; line-height: 1; }
+@media (max-width: 480px) {
+  .rb-g { padding-right: 9px; }
+  .rb-g b { font-size: .95rem; }
+}
