@@ -177,10 +177,10 @@
   var rot = document.querySelector("[data-review-rotator]");
   if (rot && !reduceMotion) {
     var heroReviews = [
-      { q: '"Washed it right back and it honestly looks like a different house."', w: "Hannah M. \u00b7 example review" },
-      { q: '"Quote in writing the same week and the price didn\u0027t move."', w: "Dave R. \u00b7 example review" },
-      { q: '"Worked around the holiday-house bookings without us losing a night."', w: "Priya S. \u00b7 example review" },
-      { q: '"Careful with an awkward old cottage, swept and tidy every evening."', w: "Tom W. \u00b7 example review" }
+      { q: '"Sam painted our door and did a fantastic job. Highly recommend!"', w: "Annekarien \u00b7 Google review" },
+      { q: '"He never fails to deliver, and is great to communicate with."', w: "Liz Lane \u00b7 Google review" },
+      { q: '"Beautifully and neatly painted. Turned up on time."', w: "Chris Bishop \u00b7 Google review" },
+      { q: '"We needed someone we could trust as we were living overseas."', w: "Catherine Barrette \u00b7 Google review" }
     ];
     var rq = rot.querySelector(".rb-quote");
     var rw = rot.querySelector(".rb-who");

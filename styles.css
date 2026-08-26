@@ -191,15 +191,15 @@ h1, h2, h3, h4 {
 .rating-text small { display: block; font-size: 0.78rem; color: var(--muted); opacity: 0.8; }
 
 .hero-media {
-  position: relative; overflow: hidden; background: var(--ink); min-height: 320px;
-  /* the photos are 4:3; holding that ratio keeps the whole subject in frame
-     instead of letting the text column's height crop it to a sliver */
-  aspect-ratio: 4 / 3; align-self: center;
+  position: relative; overflow: hidden; background: var(--paper); min-height: 320px;
+  /* the supplied photos are 3:2; matching that ratio means object-fit: contain
+     shows each one whole with no crop and no visible letterboxing */
+  aspect-ratio: 16 / 10; align-self: center;
 }
 .hero-slides { position: absolute; inset: 0; }
 .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s var(--ease); }
 .hero-slide.is-active { opacity: 1; }
-.hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; }
+.hero-slide img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 50%; }
 .hero-scrim { position: absolute; inset: 0; background: linear-gradient(100deg, var(--paper) 0%, rgba(236, 243, 247, 0) 26%, rgba(25, 25, 25, 0.12) 100%); pointer-events: none; }
 /* the swatch rail: the three brand colours down the seam */
 .hero-rail { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; display: grid; grid-template-rows: 1fr 1fr 1fr; z-index: 2; }
@@ -410,7 +410,7 @@ h1, h2, h3, h4 {
 @media (max-width: 1150px) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
   .hero-inner { max-width: none; padding: clamp(36px, 7vw, 60px) var(--pad); }
-  .hero-media { min-height: 0; aspect-ratio: 4 / 3; align-self: stretch; width: 100%; max-height: 68vh; }
+  .hero-media { min-height: 0; aspect-ratio: 16 / 10; align-self: stretch; width: 100%; max-height: 68vh; }
   .hero-scrim { background: linear-gradient(180deg, rgba(236, 243, 247, 0.9) 0%, rgba(236, 243, 247, 0) 22%); }
   .hero-rail { left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 8px; grid-template-rows: none; grid-template-columns: 1fr 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr; }
