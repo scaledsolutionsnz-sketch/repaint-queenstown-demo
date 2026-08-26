@@ -308,7 +308,7 @@ h1, h2, h3, h4 {
 .checklist svg { width: 20px; height: 20px; flex: none; color: var(--blue-ink); margin-top: 3px; }
 
 /* ---------- crew ---------- */
-.crew-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.crew-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
 .crew-card { padding: 30px clamp(16px, 2.2vw, 30px); border-left: 1px solid var(--line); }
 .crew-card:first-child { border-left: 0; padding-left: 0; }
 .crew-card:last-child { padding-right: 0; }
