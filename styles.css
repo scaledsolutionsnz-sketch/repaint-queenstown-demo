@@ -457,3 +457,34 @@ h1, h2, h3, h4 {
 .rating-text.fading { opacity: 0; }
 .rb-quote { display: block; }
 .rb-who { display: block; margin-top: 2px; }
+
+/* ---------- Why Repaint Queenstown ---------- */
+.why-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+.why-item { padding: 26px 0; border-top: 1px solid var(--line); }
+.why-item:first-child { border-top: 0; padding-top: 0; }
+.why-item h3 { font-size: 1.18rem; margin-bottom: 8px; }
+.why-item p { color: var(--muted); margin: 0; max-width: 62ch; }
+.why-cta { padding-top: 30px; border-top: 1px solid var(--line); }
+
+/* ---------- How a job runs ---------- */
+.proc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 22px; }
+.proc { position: relative; padding: 26px 24px; background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius-lg); }
+.proc-n {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; margin-bottom: 14px;
+  border-radius: 50%; background: var(--blue); color: var(--ink);
+  font-weight: 700; font-size: .95rem;
+}
+.proc h3 { font-size: 1.1rem; margin-bottom: 7px; }
+.proc p { color: var(--muted); margin: 0; font-size: .96rem; }
+.proc-cta { margin-top: 34px; }
+
+@media (min-width: 720px) {
+  .why-grid { grid-template-columns: 1fr 1fr; column-gap: 46px; }
+  .why-item { padding: 24px 0; }
+  .why-item:nth-child(2) { border-top: 0; padding-top: 0; }
+  .why-cta { grid-column: 1 / -1; }
+  .proc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .proc-grid { grid-template-columns: repeat(4, 1fr); }
+}
