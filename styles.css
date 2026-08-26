@@ -297,7 +297,7 @@ h1, h2, h3, h4 {
 .about-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(30px, 5vw, 76px); align-items: center; }
 .about-grid.is-flipped .about-media { order: 2; }
 .about-media { position: relative; }
-.about-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-lg); }
+.about-media img { width: 100%; height: auto; aspect-ratio: auto; object-fit: fill; border-radius: var(--radius-lg); }
 .about-tag {
   position: absolute; left: -12px; bottom: -16px; background: var(--blue); color: var(--ink);
   font-family: "Outfit", sans-serif; font-weight: 600; font-size: 0.84rem;
