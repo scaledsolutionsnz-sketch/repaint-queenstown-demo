@@ -267,15 +267,21 @@ h1, h2, h3, h4 {
 }
 .filter-btn:hover { border-color: var(--ink); }
 .filter-btn.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.gallery { column-count: 3; column-gap: clamp(14px, 1.8vw, 22px); }
+.gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.8vw, 22px); align-items: stretch;
+}
 .gallery figure {
-  break-inside: avoid; margin: 0 0 clamp(14px, 1.8vw, 22px); position: relative;
+  margin: 0; position: relative; display: flex; flex-direction: column;
   background: var(--paper-2); border: 1px solid var(--line); padding: 10px; cursor: zoom-in;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 .gallery figure:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
-.gallery img { width: 100%; height: auto; }
-.gallery figcaption { padding: 11px 3px 3px; font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; display: block; }
+.gallery figcaption {
+  padding: 11px 3px 3px; font-size: 0.84rem; color: var(--muted); line-height: 1.5;
+  min-height: calc(2 * 1.5em + 14px);
+}
 .gallery figure[hidden] { display: none; }
 
 /* lightbox */
@@ -418,7 +424,7 @@ h1, h2, h3, h4 {
   .service-media-frame { aspect-ratio: 16 / 10; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .about-grid.is-flipped .about-media { order: 0; }
-  .gallery { column-count: 2; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
   .swatches { grid-template-columns: repeat(3, 1fr); }
   .swatch:nth-child(3) { border-right: 0; }
   .swatch:nth-child(1), .swatch:nth-child(2), .swatch:nth-child(3) { border-bottom: 1px solid var(--line); }
@@ -442,7 +448,7 @@ h1, h2, h3, h4 {
   .crew-card { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-right: 0; }
   .crew-card:first-child { border-top: 0; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .gallery { column-count: 1; }
+  .gallery { grid-template-columns: 1fr; }
   .swatches { grid-template-columns: repeat(2, 1fr); }
   .swatch:nth-child(odd) { border-right: 1px solid var(--line); }
   .swatch:nth-child(even) { border-right: 0; }
