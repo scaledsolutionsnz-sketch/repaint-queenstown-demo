@@ -4,6 +4,15 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* The CMS editor (assets/cms.js, ?cms=edit) puts .cms-on on <html>. While it
+     is on, the automatic rotations hold still so the thing being edited stays
+     in view. assets/cms.js also fires "cms:applied" whenever it changes the
+     page; the handlers below re-sync whatever this script derives from it. */
+  var editing = function () {
+    return document.documentElement.classList.contains("cms-on");
+  };
+  var onCms = function (fn) { document.addEventListener("cms:applied", fn); };
+
   /* ---------- Opening animation ---------- */
   var intro = document.getElementById("intro");
   if (intro) {
@@ -49,7 +58,9 @@
   /* ---------- Hero rotation ---------- */
   var slides = Array.prototype.slice.call(document.querySelectorAll(".hero-slide"));
   var dots = Array.prototype.slice.call(document.querySelectorAll(".hero-dots button"));
-  if (slides.length > 1 && !reduceMotion) {
+  /* The dots always work; only the automatic advance is skipped under reduced
+     motion. (The CMS editor relies on the dots to reach photos 2 and 3.) */
+  if (slides.length > 1) {
     var index = 0;
     var timer = null;
     var show = function (next) {
@@ -60,7 +71,8 @@
       if (dots[index]) dots[index].classList.add("is-active");
     };
     var start = function () {
-      timer = window.setInterval(function () { show(index + 1); }, 5500);
+      if (reduceMotion) return;
+      timer = window.setInterval(function () { if (!editing()) show(index + 1); }, 5500);
     };
     dots.forEach(function (dot, i) {
       dot.addEventListener("click", function () {
@@ -94,13 +106,46 @@
   }
 
   /* ---------- Marquee ---------- */
+  /* Words come from the track's data-words (one per line, editable in the
+     CMS); the list here is only the fallback. */
   var track = document.getElementById("marquee-track");
   if (track) {
-    var words = ["Exterior repaints", "Interior repaints", "Cedar staining", "Decks & fences",
-                 "Queenstown", "Fernhill", "Frankton",
-                 "Lake Hayes", "Arrowtown", "Jack's Point"];
-    var half = words.map(function (w) { return '<span><i>/</i>' + w + "</span>"; }).join("");
-    track.innerHTML = half + half;
+    var fallbackWords = ["Exterior repaints", "Interior repaints", "Cedar staining", "Decks & fences",
+                         "Queenstown", "Fernhill", "Frankton",
+                         "Lake Hayes", "Arrowtown", "Jack's Point"];
+    var escapeHtml = function (t) {
+      return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    var strip = track.parentNode;
+    var builtFrom = null;
+    // The animation slides the track by half its width, so each half has to
+    // be at least as wide as the strip or the end of every loop shows a gap.
+    var covers = function () { return track.scrollWidth / 2 >= strip.clientWidth; };
+    var buildMarquee = function () {
+      var raw = track.getAttribute("data-words");
+      if (raw === builtFrom && covers()) return;
+      builtFrom = raw;
+      var words = (raw || "").split("\n").map(function (w) { return w.trim(); })
+        .filter(function (w) { return w; });
+      if (!words.length) words = fallbackWords;
+      // A short list is repeated so the strip still runs edge to edge.
+      var base = words;
+      while (words.length < fallbackWords.length) words = words.concat(base);
+      var render = function () {
+        var half = words.map(function (w) { return "<span><i>/</i>" + escapeHtml(w) + "</span>"; }).join("");
+        track.innerHTML = half + half;
+      };
+      render();
+      for (var n = 0; n < 50 && !covers(); n++) {
+        words = words.concat(base);
+        render();
+      }
+    };
+    buildMarquee();
+    onCms(buildMarquee);
+    // Re-check once the web font is in (it sets the width) and on resize.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildMarquee);
+    window.addEventListener("resize", buildMarquee, { passive: true });
   }
 
   /* ---------- Services index: one row lights up, the image follows ---------- */
@@ -123,6 +168,14 @@
       row.addEventListener("click", function () { pick(row); });
       row.addEventListener("mouseenter", function () { pick(row); });
       row.addEventListener("focus", function () { pick(row); });
+    });
+    // The caption mirrors the active heading, so follow edits to it.
+    onCms(function () {
+      var active = rows.filter(function (r) { return r.classList.contains("is-active"); })[0] || rows[0];
+      var heading = active.querySelector("h3");
+      if (caption && heading && caption.textContent !== heading.textContent) {
+        caption.textContent = heading.textContent;
+      }
     });
   }
 
@@ -174,42 +227,76 @@
   }
 
   /* ---------- Hero review rotation ---------- */
+  /* Reviews come from data-reviews, one per line as  quote | name  (editable
+     in the CMS); the list here is only the fallback. */
   var rot = document.querySelector("[data-review-rotator]");
-  if (rot && !reduceMotion) {
-    var heroReviews = [
+  var rq = rot && rot.querySelector(".rb-quote");
+  var rw = rot && rot.querySelector(".rb-who");
+  if (rot && rq && rw) {
+    var fallbackReviews = [
       { q: '"Sam painted our door and did a fantastic job. Highly recommend!"', w: "Annekarien \u00b7 Google review" },
       { q: '"He never fails to deliver, and is great to communicate with."', w: "Liz Lane \u00b7 Google review" },
       { q: '"Beautifully and neatly painted. Turned up on time."', w: "Chris Bishop \u00b7 Google review" },
       { q: '"We needed someone we could trust as we were living overseas."', w: "Catherine Barrette \u00b7 Google review" }
     ];
-    var rq = rot.querySelector(".rb-quote");
-    var rw = rot.querySelector(".rb-who");
+    var heroReviews = function () {
+      var list = (rot.getAttribute("data-reviews") || "").split("\n").map(function (line) {
+        var cut = line.indexOf("|");
+        return cut < 0 ? { q: line.trim(), w: "" }
+                       : { q: line.slice(0, cut).trim(), w: line.slice(cut + 1).trim() };
+      }).filter(function (r) { return r.q; });
+      return list.length ? list : fallbackReviews;
+    };
     var ri = 0;
-    window.setInterval(function () {
-      rot.classList.add("fading");
-      window.setTimeout(function () {
-        ri = (ri + 1) % heroReviews.length;
-        rq.textContent = heroReviews[ri].q;
-        rw.textContent = heroReviews[ri].w;
-        rot.classList.remove("fading");
-      }, 450);
-    }, 6000);
+    var paintReview = function () {
+      var list = heroReviews();
+      ri = ri % list.length;
+      if (rq.textContent !== list[ri].q) rq.textContent = list[ri].q;
+      if (rw.textContent !== list[ri].w) rw.textContent = list[ri].w;
+    };
+    if (!reduceMotion) {
+      window.setInterval(function () {
+        if (editing()) return;
+        rot.classList.add("fading");
+        window.setTimeout(function () {
+          ri = (ri + 1) % heroReviews().length;
+          paintReview();
+          rot.classList.remove("fading");
+        }, 450);
+      }, 6000);
+    }
+    onCms(paintReview);
   }
 
   /* ---------- Gmail compose links (address assembled in JS) ---------- */
-  document.querySelectorAll("a[data-gmail]").forEach(function (a) {
-    var to = a.getAttribute("data-user") + "@" + a.getAttribute("data-domain");
-    a.href =
-      "https://mail.google.com/mail/?view=cm&fs=1&to=" +
-      encodeURIComponent(to) +
-      "&su=" + (a.getAttribute("data-su") || "") +
-      "&body=" + (a.getAttribute("data-body") || "");
-    a.target = "_blank";
-    a.rel = "noopener";
-  });
+  /* A link the CMS has given its own href is left alone; only links still
+     pointing at "#" are built. */
+  var wireGmail = function () {
+    document.querySelectorAll("a[data-gmail]").forEach(function (a) {
+      var current = a.getAttribute("href");
+      if (current && current !== "#") return;
+      var to = a.getAttribute("data-user") + "@" + a.getAttribute("data-domain");
+      a.href =
+        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+        encodeURIComponent(to) +
+        "&su=" + (a.getAttribute("data-su") || "") +
+        "&body=" + (a.getAttribute("data-body") || "");
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+  };
+  wireGmail();
+  onCms(wireGmail);
 
   /* ---------- Current year ---------- */
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = String(new Date().getFullYear());
-  });
+  /* Re-run after CMS edits too: a saved footer line carries the year it was
+     saved in. */
+  var fillYear = function () {
+    var year = String(new Date().getFullYear());
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      if (el.textContent !== year) el.textContent = year;
+    });
+  };
+  fillYear();
+  onCms(fillYear);
 })();
